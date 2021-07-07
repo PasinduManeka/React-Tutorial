@@ -1,17 +1,21 @@
-const BlogList = ({blogs, title}) => {
+const BlogList = ({ blogs, title, handleDelete }) => {
     //const blogs = props.blogs;
     //const title = props.title;
-    return ( 
+
+
+
+    return (
         <div className="blog-List">
             <h2>{title}</h2>
             {blogs.map((blog) => (
-              <div className="blog-preview card shadow p-3 mb-5 bg-white rounded" key={blog.id}>
-                  <h2 class="text-danger">{blog.title}</h2>
-                  <p>Written by:{blog.author}</p>
-              </div>
+                <div className="blog-preview card shadow p-3 mb-5 bg-white rounded" key={blog.id}>
+                    <h2 class="text-danger">{blog.title}</h2>
+                    <p>Written by:{blog.author}</p>
+                    <button class="btn btn-outline-danger" onClick={() => handleDelete(blog.id)} >Delete blog</button>
+                </div>
             ))}
         </div>
-     );
+    );
 }
- 
+
 export default BlogList;
