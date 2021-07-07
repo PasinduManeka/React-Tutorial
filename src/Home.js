@@ -8,7 +8,7 @@ const Home = () => {
         { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
     ]);
     
-    const [name, setName] = useState('mario');
+    //const [name, setName] = useState('mario');
 
     //First hook
     const handleDelete = (id) => {
@@ -26,8 +26,7 @@ const Home = () => {
     return (
         <div className="home">
             <BlogList blogs={blogs} title="All Blogs.." handleDelete={handleDelete} />
-            <button class="btn btn-outline-primary" onClick={()=>setName('lungi')}>Change the name</button>
-            <p>{name}</p>
+            
         </div>
     );
 }
