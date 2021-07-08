@@ -20,8 +20,7 @@ const Home = () => {
     //second hook. We can do any authentication, fetch data 
     useEffect(()=>{
         console.log('Use effect ran.');
-        console.log(name);
-    }, [name]);
+    }, []);
 
     return (
         <div className="home">
