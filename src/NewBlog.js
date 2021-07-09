@@ -6,6 +6,12 @@ const NewBlog = () => {
     const[author, setAuthor] = useState('Select');
     const[body, setBody] = useState('');
 
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        const blog = {title,body,author};
+
+        console.log(blog);
+    }
 
     return ( 
         <div className="card">
@@ -14,28 +20,28 @@ const NewBlog = () => {
             </h2>
 
             <div className="card-body">
-                <form action="">
+                <form onSubmit={handleSubmit}>
                     <div className="form-row">
                         {/*Blog Title*/}
-                        <div class="col">
-                            <div class="md-form">
+                        <div className="col">
+                            <div className="md-form">
                                 <label >Blog Title</label>
                                 <input 
                                     type="text" 
                                     value={title} 
                                     onChange={(e)=>setTitle(e.target.value)} 
-                                    class="form-control border border-secondary" 
-                                    autocomplete="off" 
+                                    className="form-control border border-secondary" 
+                                    autoComplete="off" 
                                     required
                                 />
                             </div>
                         </div>
                         {/*Blog Author*/}
-                        <div class="col">
-                            <div class="md-form">
+                        <div className="col">
+                            <div className="md-form">
                                 <label >Blog Author</label>
                                 <select value={author} onChange={(e)=> setAuthor(e.target.value)} className="form-control border border-secondary">
-                                    <option value="" selected>Select...</option>
+                                    <option value>Select...</option>
                                     <option value="mario">mario</option>
                                     <option value="yoshi">yoshi</option>
                                 </select>
@@ -43,12 +49,12 @@ const NewBlog = () => {
                         </div>
                     </div>
                     {/*Blog Body */}
-                    <div class="form-group black-border">
-                            <label for="">Address</label>
+                    <div className="form-group black-border">
+                            <label>Address</label>
                             <textarea 
                                 name="address" 
                                 rows="3" 
-                                class="form-control border border-secondary" 
+                                className="form-control border border-secondary" 
                                 value={body} 
                                 onChange={(e)=>setBody(e.target.value)}
                                 required
@@ -61,9 +67,6 @@ const NewBlog = () => {
                     </div>
                 </form>
             </div>
-            <p>{title}</p>
-            <p>{author}</p>
-            <p>{body}</p>
         </div>
      );
 }
