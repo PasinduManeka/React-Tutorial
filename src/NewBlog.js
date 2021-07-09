@@ -5,12 +5,20 @@ const NewBlog = () => {
     const[title, setTitle] = useState('');
     const[author, setAuthor] = useState('Select');
     const[body, setBody] = useState('');
+    const[isPending, setIsPending] = useState(false);
 
     const handleSubmit = (e)=>{
         e.preventDefault();
         const blog = {title,body,author};
 
-        console.log(blog);
+        fetch('http://localhost:8000/blogs',{
+            method:'POST',
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify(blog)
+        }).then(() => {
+            console.log('new blog added.');
+            setIsPending(false);
+        })
     }
 
     return ( 
@@ -61,9 +69,12 @@ const NewBlog = () => {
                             ></textarea>
                     </div>
                     <div>
-                        <button className="btn btn-outline-success form-control border border-success">
+                        {!isPending && <button className="btn btn-outline-success form-control border border-success">
                             Submit The Blog
-                        </button>
+                        </button>}
+                        {isPending && <button className="btn btn-outline-success form-control border border-success" disabled>
+                            Adding blog ...
+                        </button>}
                     </div>
                 </form>
             </div>
