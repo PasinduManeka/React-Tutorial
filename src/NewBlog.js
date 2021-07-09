@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const NewBlog = () => {
 
-    const[title, setTitle] = useState('');
-    const[author, setAuthor] = useState('Select');
-    const[body, setBody] = useState('');
-    const[isPending, setIsPending] = useState(false);
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('Select');
+    const [body, setBody] = useState('');
+    const [isPending, setIsPending] = useState(false);
+    const history = useHistory();
 
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -18,6 +20,7 @@ const NewBlog = () => {
         }).then(() => {
             console.log('new blog added.');
             setIsPending(false);
+            history.push('/');
         })
     }
 

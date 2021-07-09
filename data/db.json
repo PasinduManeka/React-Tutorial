@@ -17,6 +17,12 @@
       "body": "Todo is to do.",
       "author": "mario",
       "id": 3
+    },
+    {
+      "title": "Yo yo",
+      "body": "Yo-yo is the best.",
+      "author": "yoshi",
+      "id": 4
     }
   ]
 }
